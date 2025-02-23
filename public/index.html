@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafik Penduduk Indonesia 2024</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div style="width: 80%; margin: auto;">
+        <h2>Grafik Jumlah Penduduk Indonesia 2024</h2>
+        <canvas id="pendudukChart"></canvas>
+    </div>
+
+    <script>
+        // Data Penduduk Indonesia per Provinsi (misalnya)
+        const dataPenduduk = {
+            labels: ['Jakarta', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur', 'Sumatera Utara', 'Bali', 'Sulawesi Selatan'],
+            datasets: [{
+                label: 'Penduduk (dalam juta)',
+                data: [11.5, 48.5, 34.7, 42.5, 14.7, 4.3, 8.3],  // contoh data populasi per provinsi
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: dataPenduduk,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // Membuat grafik
+        const pendudukChart = new Chart(
+            document.getElementById('pendudukChart'),
+            config
+        );
+    </script>
+</body>
+</html>
